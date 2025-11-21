@@ -1,17 +1,23 @@
 import { config } from 'dotenv';
-import { ClientOrange } from './client';
+import { AuthManager } from './core/auth';
+import { BaseClient } from './core/client';
+import { DevicesService } from './services/devices/index';
+import { SystemService } from './services/system/index';
 
 config();
 
-/**
- * Shared client instance for convenience functions.
- */
-const sharedClient = new ClientOrange('192.168.1.1', 'admin', process.env.LIVEBOX_PASSWORD2 || 'your_password');
+const hostname = '192.168.1.1';
+const username = 'admin';
+const password = process.env.LIVEBOX_PASSWORD2 || 'your_password';
 
 /**
- * Gets the shared authenticated client.
+ * Shared auth and client instances for convenience functions.
  */
-export async function getAuthenticatedClient(): Promise<ClientOrange> {
-    // The client handles login internally in requestAuthenticated
-    return sharedClient;
-}
+const auth = new AuthManager(hostname, username, password);
+const baseClient = new BaseClient(hostname, auth);
+
+/**
+ * Shared service instances.
+ */
+export const sharedDevicesService = new DevicesService(baseClient);
+export const sharedSystemService = new SystemService(baseClient);
