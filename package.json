@@ -1,0 +1,25 @@
+{
+  "name": "livebox",
+  "version": "1.0.0",
+  "description": "a perfect library to interact with livebox 5",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "ryzenixx",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@types/inquirer": "^9.0.9",
+    "dotenv": "^17.2.3",
+    "inquirer": "^12.4.1",
+    "node-fetch": "^3.3.2"
+  }
+}
