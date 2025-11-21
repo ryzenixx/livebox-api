@@ -8,7 +8,7 @@ config();
 
 const hostname = "192.168.1.1";
 const username = "admin";
-const password = process.env.LIVEBOX_PASSWORD2 || "your_password";
+const password = process.env.LIVEBOX_PASSWORD || "your_password";
 
 /**
  * Shared auth and client instances for convenience functions.
