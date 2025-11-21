@@ -25,7 +25,7 @@
     "typescript",
     "iot"
   ],
-  "author": "ryzenixx",
+  "author": "ryzenixx <hello@maelduret.com>",
   "license": "MIT",
   "type": "commonjs",
   "devDependencies": {

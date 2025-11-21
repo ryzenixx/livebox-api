@@ -14,7 +14,7 @@ We take security seriously. This project follows these versions with security up
 If you discover a security vulnerability, please report it responsibly:
 
 ### Contact
-- **Email**: ryzenixx@users.noreply.github.com
+- **Email**: hello@maelduret.com
 - **GitHub**: Open a private security advisory
 
 ### What to include
