@@ -27,7 +27,7 @@ export default [
       "@typescript-eslint/no-explicit-any": "warn",
       "prefer-const": "error",
       "no-var": "error",
-      "no-undef": "off", // Désactivé car on définit les globals manuellement
+      "no-undef": "off",
     },
   },
   {
