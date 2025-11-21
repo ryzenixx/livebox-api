@@ -94,3 +94,7 @@ console.log('Livebox rebooting...');
 ## License
 
 MIT
+
+---
+
+[Contributing](CONTRIBUTING.md) • [Security](SECURITY.md) • [Changelog](CHANGELOG.md)
