@@ -74,5 +74,3 @@ export class ClientOrange {
         });
     }
 }
-
-// TODO: Maybe add a logout method or handle token refresh

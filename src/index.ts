@@ -1,4 +1,3 @@
-import { startMenu } from './menu';
-
-// Kick off the app
-startMenu();
+// Export the main functions for the API
+export { getConnectedDevices } from './devices';
+export { ClientOrange } from './client';

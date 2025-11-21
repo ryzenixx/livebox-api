@@ -3,7 +3,7 @@ import { ClientOrange } from './client';
 
 config();
 
-const client = new ClientOrange('192.168.1.1', 'admin', process.env.LIVEBOX_PASSWORD || 'your_password');
+const client = new ClientOrange('192.168.1.1', 'admin', process.env.LIVEBOX_PASSWORD2 || 'your_password');
 
 interface Device {
     Name?: string;

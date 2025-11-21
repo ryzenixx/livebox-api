@@ -1,12 +1,14 @@
 {
   "name": "livebox",
   "version": "1.0.0",
-  "description": "a perfect library to interact with livebox 5",
-  "main": "index.js",
+  "description": "Library to interact with Orange Livebox API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "start": "npm run build && node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node src/index.ts",
+    "start": "npm run build && node -e \"console.log('Library built, use as npm package')\"",
+    "example": "ts-node examples/devices.example.ts"
   },
   "keywords": [],
   "author": "ryzenixx",
@@ -14,12 +16,11 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@types/inquirer": "^9.0.9",
     "dotenv": "^17.2.3",
-    "inquirer": "^12.4.1",
     "node-fetch": "^3.3.2"
   }
 }
