@@ -1,6 +1,6 @@
 {
   "name": "livebox-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript library to interact with Orange Livebox API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,7 +16,15 @@
     "static-dhcp-example": "ts-node examples/static-dhcp.example.ts",
     "dynamic-dhcp-example": "ts-node examples/dynamic-dhcp.example.ts"
   },
-  "keywords": ["livebox", "orange", "api", "router", "dhcp", "typescript", "iot"],
+  "keywords": [
+    "livebox",
+    "orange",
+    "api",
+    "router",
+    "dhcp",
+    "typescript",
+    "iot"
+  ],
   "author": "ryzenixx",
   "license": "ISC",
   "type": "commonjs",
