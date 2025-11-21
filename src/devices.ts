@@ -6,9 +6,7 @@ config();
 const client = new ClientOrange('192.168.1.1', 'admin', process.env.LIVEBOX_PASSWORD2 || 'your_password');
 
 interface Device {
-    Name?: string;
-    IPAddress?: string;
-    Active: boolean;
+    [key: string]: any; // Allow all properties from the API
 }
 
 // Fetches the list of devices from the API
@@ -17,7 +15,7 @@ export async function getConnectedDevices(): Promise<Device[]> {
     return parseDevices(response);
 }
 
-// Parses the weird API response to get active devices
+// Parses the weird API response to get all active devices with full info
 function parseDevices(response: any): Device[] {
     const devices: Device[] = [];
     if (response.status && response.status.length > 0) {
@@ -28,7 +26,6 @@ function parseDevices(response: any): Device[] {
             const methods = lan.Children || [];
             for (const method of methods) {
                 const children = method.Children || [];
-                // console.log('Found method:', method); // debug
                 devices.push(...children);
             }
         }
