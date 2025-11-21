@@ -1,14 +1,14 @@
-import { config } from 'dotenv';
-import { AuthManager } from './core/auth';
-import { BaseClient } from './core/client';
-import { DevicesService } from './services/devices/index';
-import { SystemService } from './services/system/index';
+import { config } from "dotenv";
+import { AuthManager } from "./core/auth";
+import { BaseClient } from "./core/client";
+import { DevicesService } from "./services/devices/index";
+import { SystemService } from "./services/system/index";
 
 config();
 
-const hostname = '192.168.1.1';
-const username = 'admin';
-const password = process.env.LIVEBOX_PASSWORD2 || 'your_password';
+const hostname = "192.168.1.1";
+const username = "admin";
+const password = process.env.LIVEBOX_PASSWORD2 || "your_password";
 
 /**
  * Shared auth and client instances for convenience functions.
