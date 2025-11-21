@@ -10,7 +10,8 @@
     "start": "npm run build && node -e \"console.log('Library built, use as npm package')\"",
     "devices-example": "ts-node examples/devices.example.ts",
     "reboot-example": "ts-node examples/reboot.example.ts",
-    "dhcp-example": "ts-node examples/dhcp.example.ts"
+    "dhcp-example": "ts-node examples/dhcp.example.ts",
+    "static-dhcp-example": "ts-node examples/static-dhcp.example.ts"
   },
   "keywords": [],
   "author": "ryzenixx",

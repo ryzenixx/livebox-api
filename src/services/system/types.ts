@@ -40,3 +40,20 @@ export interface DHCPPool {
 export interface DHCPSettings {
     status: Record<string, DHCPPool>;
 }
+
+/**
+ * Interface for a static DHCP lease.
+ */
+export interface StaticDHCPLease {
+    Enable: boolean;
+    Alias: string;
+    Chaddr: string; // MAC Address
+    Yiaddr: string; // IP Address
+}
+
+/**
+ * Interface for static DHCP leases response.
+ */
+export interface StaticDHCPLeases {
+    status: Record<string, StaticDHCPLease>;
+}
