@@ -373,5 +373,4 @@ If you encounter issues or have questions:
 
 ---
 
-Made with ❤️ for the Orange Livebox community</content>
-<parameter name="filePath">/Users/mael/Documents/Livebox/README.md
+Made with ❤️ by ryzenixx</content>
