@@ -1,4 +1,5 @@
 import { BaseClient } from "../../core/client";
+import { AuthManager } from "../../core/auth";
 import { Device } from "./types";
 
 /**
@@ -105,9 +106,15 @@ export class DevicesService {
   }
 }
 
-// Convenience function using shared client
-import { sharedDevicesService } from "../../shared-client";
+// Convenience function with credentials as parameters
+export async function getConnectedDevices(
+  password: string,
+  hostname: string = "192.168.1.1",
+  username: string = "admin",
+): Promise<Device[]> {
+  const auth = new AuthManager(hostname, username, password);
+  const baseClient = new BaseClient(hostname, auth);
+  const service = new DevicesService(baseClient);
 
-export async function getConnectedDevices(): Promise<Device[]> {
-  return sharedDevicesService.getConnectedDevices();
+  return service.getConnectedDevices();
 }

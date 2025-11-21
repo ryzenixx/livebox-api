@@ -1,8 +1,17 @@
-import { getStaticDHCPLeases, StaticDHCPLease } from "../src/index";
+import { LiveboxClient, StaticDHCPLease } from "../src/index";
+import * as dotenv from "dotenv";
+
+dotenv.config();
+
 async function staticDHCPExample() {
   try {
     console.log("Testing getStaticDHCPLeases...");
-    const leases = await getStaticDHCPLeases();
+    const client = new LiveboxClient(
+      "192.168.1.1",
+      "admin",
+      process.env.LIVEBOX_PASSWORD || "your_password"
+    );
+    const leases = await client.system.getStaticDHCPLeases();
     console.log("Static DHCP Leases:");
     // Display info for each static lease
     const leaseEntries = leases.status;

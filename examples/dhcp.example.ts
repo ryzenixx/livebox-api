@@ -1,8 +1,17 @@
-import { getDHCPSettings, DHCPPool } from "../src/index";
+import { LiveboxClient, DHCPPool } from "../src/index";
+import * as dotenv from "dotenv";
+
+dotenv.config();
+
 async function dhcpExample() {
   try {
     console.log("Testing getDHCPSettings...");
-    const settings = await getDHCPSettings();
+    const client = new LiveboxClient(
+      "192.168.1.1",
+      "admin",
+      process.env.LIVEBOX_PASSWORD || "your_password"
+    );
+    const settings = await client.getDHCPSettings();
     console.log("DHCP Settings:");
     // Display key info for each pool
     const pools = settings.status;

@@ -1,9 +1,17 @@
-import { getDynamicDHCPLeases, DynamicDHCPLease } from "../src/index";
+import { LiveboxClient, DynamicDHCPLease } from "../src/index";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 async function dynamicDHCPExample() {
   try {
     console.log("Testing getDynamicDHCPLeases...");
-    const leases = await getDynamicDHCPLeases();
+    const client = new LiveboxClient(
+      "192.168.1.1",
+      "admin",
+      process.env.LIVEBOX_PASSWORD || "your_password"
+    );
+    const leases = await client.system.getDynamicDHCPLeases();
     console.log("Dynamic DHCP Leases:");
 
     // Display info for each dynamic lease

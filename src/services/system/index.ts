@@ -1,4 +1,5 @@
 import { BaseClient } from "../../core/client";
+import { AuthManager } from "../../core/auth";
 import { DHCPSettings, StaticDHCPLeases, DynamicDHCPLeases } from "./types";
 
 /**
@@ -59,25 +60,53 @@ export class SystemService {
   }
 }
 
-// Convenience functions using shared client
-import { sharedSystemService } from "../../shared-client";
+// Convenience functions with credentials as parameters
+export async function rebootLivebox(
+  password: string,
+  hostname: string = "192.168.1.1",
+  username: string = "admin",
+): Promise<RebootResponse> {
+  const auth = new AuthManager(hostname, username, password);
+  const baseClient = new BaseClient(hostname, auth);
+  const service = new SystemService(baseClient);
 
-export async function rebootLivebox(): Promise<RebootResponse> {
-  return sharedSystemService.rebootLivebox();
+  return service.rebootLivebox();
 }
 
-export async function getDHCPSettings(): Promise<DHCPSettings> {
-  return sharedSystemService.getDHCPSettings();
+export async function getDHCPSettings(
+  password: string,
+  hostname: string = "192.168.1.1",
+  username: string = "admin",
+): Promise<DHCPSettings> {
+  const auth = new AuthManager(hostname, username, password);
+  const baseClient = new BaseClient(hostname, auth);
+  const service = new SystemService(baseClient);
+
+  return service.getDHCPSettings();
 }
 
 export async function getStaticDHCPLeases(
+  password: string,
   poolName: string = "default",
+  hostname: string = "192.168.1.1",
+  username: string = "admin",
 ): Promise<StaticDHCPLeases> {
-  return sharedSystemService.getStaticDHCPLeases(poolName);
+  const auth = new AuthManager(hostname, username, password);
+  const baseClient = new BaseClient(hostname, auth);
+  const service = new SystemService(baseClient);
+
+  return service.getStaticDHCPLeases(poolName);
 }
 
 export async function getDynamicDHCPLeases(
+  password: string,
   poolName: string = "default",
+  hostname: string = "192.168.1.1",
+  username: string = "admin",
 ): Promise<DynamicDHCPLeases> {
-  return sharedSystemService.getDynamicDHCPLeases(poolName);
+  const auth = new AuthManager(hostname, username, password);
+  const baseClient = new BaseClient(hostname, auth);
+  const service = new SystemService(baseClient);
+
+  return service.getDynamicDHCPLeases(poolName);
 }
