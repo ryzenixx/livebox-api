@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-async function test() {
+async function devicesExample() {
   try {
     console.log("Testing getConnectedDevices...");
     const client = new LiveboxClient(
@@ -21,4 +21,4 @@ async function test() {
     console.error("Test failed:", error);
   }
 }
-test();
+devicesExample();
