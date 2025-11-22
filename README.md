@@ -97,4 +97,4 @@ MIT
 
 ---
 
-[Contributing](CONTRIBUTING.md) • [Security](SECURITY.md) • [Changelog](CHANGELOG.md)
+[Contributing](https://github.com/ryzenixx/livebox-api/blob/main/CONTRIBUTING.md) • [Security](https://github.com/ryzenixx/livebox-api/blob/main/SECURITY.md) • [Changelog](https://github.com/ryzenixx/livebox-api/blob/main/CHANGELOG.md)
