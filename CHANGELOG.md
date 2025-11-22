@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Moved `dotenv` to devDependencies as it's only used in examples
 
+### Documentation
+- Updated npm badge to use shields.io for better reliability
+
 ## [1.1.5] - 2025-11-22
 
 ### Fixed

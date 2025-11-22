@@ -1,6 +1,6 @@
 # Livebox API
 
-[![npm version](https://badge.fury.io/js/livebox-api.svg)](https://badge.fury.io/js/livebox-api)
+[![npm version](https://img.shields.io/npm/v/livebox-api.svg)](https://www.npmjs.com/package/livebox-api)
 [![GitHub](https://img.shields.io/badge/GitHub-ryzenixx%2Flivebox--api-blue.svg)](https://github.com/ryzenixx/livebox-api)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
