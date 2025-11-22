@@ -1,3 +1,8 @@
+## [1.2.1] - 2025-11-22
+
+### Metadata
+- Updated package informations in package.json
+
 ## [1.2.0] - 2025-11-22
 
 ### Added
