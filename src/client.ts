@@ -46,4 +46,18 @@ export class LiveboxClient {
   async getDynamicDHCPLeases(poolName?: string) {
     return this.system.getDynamicDHCPLeases(poolName);
   }
+
+  /**
+   * Convenience method to add a static DHCP lease.
+   */
+  async addStaticDHCPLease(lease: import("./services/system/types").AddStaticDHCPLeaseInput) {
+    return this.system.addStaticDHCPLease(lease);
+  }
+
+  /**
+   * Convenience method to delete a static DHCP lease.
+   */
+  async deleteStaticDHCPLease(lease: import("./services/system/types").DeleteStaticDHCPLeaseInput) {
+    return this.system.deleteStaticDHCPLease(lease);
+  }
 }

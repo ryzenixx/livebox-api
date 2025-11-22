@@ -9,6 +9,8 @@ export {
   getDHCPSettings,
   getStaticDHCPLeases,
   getDynamicDHCPLeases,
+  addStaticDHCPLease,
+  deleteStaticDHCPLease,
 } from "./services/system/index";
 // Export types
 export { Device } from "./services/devices/types";
@@ -19,6 +21,8 @@ export {
   StaticDHCPLeases,
   DynamicDHCPLease,
   DynamicDHCPLeases,
+  AddStaticDHCPLeaseInput,
+  DeleteStaticDHCPLeaseInput,
   RebootResponse,
 } from "./services/system/types";
 // Legacy export

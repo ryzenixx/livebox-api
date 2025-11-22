@@ -1,6 +1,6 @@
 import { BaseClient } from "../../core/client";
 import { AuthManager } from "../../core/auth";
-import { DHCPSettings, StaticDHCPLeases, DynamicDHCPLeases } from "./types";
+import { DHCPSettings, StaticDHCPLeases, DynamicDHCPLeases, AddStaticDHCPLeaseInput, DeleteStaticDHCPLeaseInput } from "./types";
 
 /**
  * Reboot response structure.
@@ -58,6 +58,39 @@ export class SystemService {
       {},
     ) as unknown as Promise<DynamicDHCPLeases>;
   }
+
+  /**
+   * Adds a static DHCP lease.
+   */
+  async addStaticDHCPLease(
+    lease: AddStaticDHCPLeaseInput,
+  ): Promise<any> {
+    const params = {
+      MACAddress: lease.mac,
+      IPAddress: lease.ip,
+    };
+    return this.client.request(
+      "DHCPv4.Server.Pool.default",
+      "addStaticLease",
+      params,
+    );
+  }
+
+  /**
+   * Deletes a static DHCP lease.
+   */
+  async deleteStaticDHCPLease(
+    lease: DeleteStaticDHCPLeaseInput,
+  ): Promise<any> {
+    const params = {
+      MACAddress: lease.mac,
+    };
+    return this.client.request(
+      "DHCPv4.Server.Pool.default",
+      "deleteStaticLease",
+      params,
+    );
+  }
 }
 
 // Convenience functions with credentials as parameters
@@ -109,4 +142,30 @@ export async function getDynamicDHCPLeases(
   const service = new SystemService(baseClient);
 
   return service.getDynamicDHCPLeases(poolName);
+}
+
+export async function addStaticDHCPLease(
+  lease: AddStaticDHCPLeaseInput,
+  password: string,
+  hostname: string = "192.168.1.1",
+  username: string = "admin",
+): Promise<any> {
+  const auth = new AuthManager(hostname, username, password);
+  const baseClient = new BaseClient(hostname, auth);
+  const service = new SystemService(baseClient);
+
+  return service.addStaticDHCPLease(lease);
+}
+
+export async function deleteStaticDHCPLease(
+  lease: DeleteStaticDHCPLeaseInput,
+  password: string,
+  hostname: string = "192.168.1.1",
+  username: string = "admin",
+): Promise<any> {
+  const auth = new AuthManager(hostname, username, password);
+  const baseClient = new BaseClient(hostname, auth);
+  const service = new SystemService(baseClient);
+
+  return service.deleteStaticDHCPLease(lease);
 }

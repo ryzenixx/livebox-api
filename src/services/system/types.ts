@@ -49,6 +49,21 @@ export interface StaticDHCPLease {
   Yiaddr: string; // IP Address
 }
 /**
+ * Interface for adding a static DHCP lease.
+ */
+export interface AddStaticDHCPLeaseInput {
+  mac: string;
+  ip: string;
+  alias?: string;
+  enable?: boolean;
+}
+/**
+ * Interface for deleting a static DHCP lease.
+ */
+export interface DeleteStaticDHCPLeaseInput {
+  mac: string;
+}
+/**
  * Interface for static DHCP leases response.
  */
 export interface StaticDHCPLeases {

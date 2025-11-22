@@ -51,6 +51,8 @@ const dhcp = await getDHCPSettings('your_password');
 | `getDHCPSettings()` | Get DHCP pool configurations |
 | `getStaticDHCPLeases(pool?)` | Get static DHCP leases |
 | `getDynamicDHCPLeases(pool?)` | Get dynamic DHCP leases |
+| `addStaticDHCPLease(lease)` | Add a static DHCP lease |
+| `deleteStaticDHCPLease(lease)` | Delete a static DHCP lease |
 | `rebootLivebox()` | Reboot the Livebox |
 
 ### Convenience Functions
@@ -61,6 +63,8 @@ All functions take `(password, hostname?, username?)` parameters:
 - `getDHCPSettings(password, hostname?, username?)`
 - `getStaticDHCPLeases(password, pool?, hostname?, username?)`
 - `getDynamicDHCPLeases(password, pool?, hostname?, username?)`
+- `addStaticDHCPLease(lease, password, hostname?, username?)`
+- `deleteStaticDHCPLease(lease, password, hostname?, username?)`
 - `rebootLivebox(password, hostname?, username?)`
 
 ## Examples
@@ -76,12 +80,25 @@ devices.forEach(device => {
 });
 ```
 
-### DHCP Monitoring
+### DHCP Management
 
 ```typescript
+// Get DHCP settings
 const dhcp = await client.getDHCPSettings();
-Object.entries(dhcp.status).forEach(([name, pool]) => {
-  console.log(`${name}: ${pool.MinAddress} - ${pool.MaxAddress} (${pool.Enable ? 'Enabled' : 'Disabled'})`);
+
+// Add a static DHCP lease
+await client.addStaticDHCPLease({
+  mac: "AA:BB:CC:DD:EE:FF",
+  ip: "192.168.1.100",
+  alias: "My Device",
+});
+
+// Get static leases
+const staticLeases = await client.getStaticDHCPLeases();
+
+// Delete a static DHCP lease
+await client.deleteStaticDHCPLease({
+  mac: "AA:BB:CC:DD:EE:FF",
 });
 ```
 
