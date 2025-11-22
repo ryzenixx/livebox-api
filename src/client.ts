@@ -34,4 +34,16 @@ export class LiveboxClient {
   async getDHCPSettings() {
     return this.system.getDHCPSettings();
   }
+  /**
+   * Convenience method to get static DHCP leases.
+   */
+  async getStaticDHCPLeases(poolName?: string) {
+    return this.system.getStaticDHCPLeases(poolName);
+  }
+  /**
+   * Convenience method to get dynamic DHCP leases.
+   */
+  async getDynamicDHCPLeases(poolName?: string) {
+    return this.system.getDynamicDHCPLeases(poolName);
+  }
 }
